@@ -81,9 +81,21 @@ int make_move(int move, char op, char *cells) {
 char check(char *cells) {
 	for (int i = 0; i < 5; i++) {
 
-		if ((cells[i * 5] == cells[i * 5 + 1] && cells[i * 5 + 1] == cells[i * 5 + 2]) && cells[i * 5] != ' ') {
+		if ((cells[i] == cells[i + 1] && cells[i + 1] == cells[i + 2] && cells[i + 2] == cells[i + 3] && cells[i +3] == cells[i + 4]) && cells[i] != ' ') {
 
-			return cells[i];;
+			return cells[i]; //проверка строк
+		}
+		if ((cells[i] == cells[i + 5] && cells[i + 5] == cells[i + 10] && cells[i + 10] == cells[i + 15] && cells[i + 15] == cells[i + 20]) && cells[i] != ' ') {
+
+			return cells[i]; // проверка столбцов
+		}
+		if ((cells[0] == cells[6] && cells[6] == cells[12] && cells[12] == cells[18] && cells[18] == cells[24]) && cells[i] != ' ') {
+
+			return cells[i]; // проверка главной диагонали
+		}
+		if ((cells[4] == cells[8] && cells[8] == cells[12] && cells[12] == cells[16] && cells[16] == cells[20]) && cells[i] != ' ') {
+
+			return cells[i]; // проверка побочной диагонали
 		}
 	}
 
